@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        icon="@mipmap/shouye"
+        id="@+id/bottomhome"
+        title="首页" />
+    <tab
+        icon="@mipmap/dingdan"
+        id="@+id/bottomorder"
+        title="关键词" />
+    <tab
+        icon="@mipmap/wode"
+        id="@+id/bottomme"
+        title="我的" />
+</tabs>
