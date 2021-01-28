@@ -1,27 +1,37 @@
 package com.example.mem.fragment;
 
 
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
+import com.example.mem.AddYunyingActivity;
 import com.example.mem.R;
 import com.example.mem.adapter.YuyingInfoAdapter;
 import com.example.mem.databinding.FragmentShouyeBinding;
 import com.example.mem.listen.OnItemClickListener;
+import com.example.mem.utils.CameraMenu;
 import com.example.mem.utils.ToastUtils;
 import com.example.mem.utils.WrapContentLinearLayoutManager;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -114,10 +124,15 @@ public class FragmentShouye extends Fragment implements OnItemClickListener {
         binding.head.tvSearch.setOnClickListener(view -> {
 
         });
+
+        binding.tvSelect.setOnClickListener(view -> {
+            startActivity(new Intent(this.getContext(), AddYunyingActivity.class));
+        });
     }
 
     @Override
     public void onItemClick(View view, int position) {
 
     }
+
 }

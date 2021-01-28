@@ -16,6 +16,12 @@ allprojects {
     repositories {
         google()
         jcenter()
+        mavenCentral()
+        maven { url 'https://maven.google.com' }
+        maven { url 'http://oss.jfrog.org/artifactory/oss-snapshot-local/' }
+        maven { url "https://jitpack.io" }
+        maven { url "http://maven.landicorp.com/repository/ept-and-sdk/" }
+        maven { url "http://maven.landicorp.com/repository/releases/" }
     }
 }
 

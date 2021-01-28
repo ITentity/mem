@@ -2,6 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mem">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 读取sd -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-feature android:name="android.hardware.camera" /> <!-- 扫描需要的自动对焦功能 -->
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:name=".app.MyApplication"
         android:allowBackup="true"
@@ -22,6 +29,9 @@
         </activity>
 
         <activity android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity android:name=".AddYunyingActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 

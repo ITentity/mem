@@ -9,7 +9,8 @@ import android.app.Application;
 public class MyApplication extends Application {
 
     private static MyApplication app;
-
+    /*记录拍照添加时，保存的路径*/
+    private String capturePath;
 
     public static MyApplication getInstance() {
         if (app == null) {
@@ -22,5 +23,13 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         app = this;
+    }
+
+    public String getCapturePath() {
+        return capturePath;
+    }
+
+    public void setCapturePath(String capturePath) {
+        this.capturePath = capturePath;
     }
 }
