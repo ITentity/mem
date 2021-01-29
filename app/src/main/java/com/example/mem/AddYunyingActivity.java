@@ -22,6 +22,7 @@ import com.example.mem.fragment.FragmentShouye;
 import com.example.mem.utils.CameraMenu;
 import com.example.mem.utils.PhotoUtils;
 import com.example.mem.utils.ToastUtils;
+import com.example.mem.utils.UIUtils;
 import com.gyf.barlibrary.ImmersionBar;
 
 import java.util.ArrayList;
@@ -115,20 +116,21 @@ public class AddYunyingActivity extends AppCompatActivity {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        ToastUtils.show("212121");
+
         switch (requestCode) {
             case CameraMenu.SYSTEM_CAMERA:// 普通拍照
                 if (resultCode == RESULT_OK) {
                     String imgPath = MyApplication.getInstance().getCapturePath();
                     /*置空拍照路径*/
                     MyApplication.getInstance().setCapturePath("");
-
+                    UIUtils.setGoodImgPath(imgPath, binding.ivSelect);
                 }
                 break;
             case CameraMenu.CHOOSE_PHOTO:  // 打开相机选择图片的返回
                 if (resultCode == RESULT_OK && null != data) {
                     String imgPath = PhotoUtils.getPath(this, data.getData());
-
+                    ToastUtils.show(imgPath);
+                    UIUtils.setGoodImgPath(imgPath, binding.ivSelect);
                 }
                 break;
 
