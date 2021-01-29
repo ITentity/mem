@@ -1,0 +1,534 @@
+Index: app/src/main/res/layout/adapter_new_goods_item.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<RelativeLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    android:id=\"@+id/ll_parent\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"50dp\"\r\n    android:orientation=\"vertical\">\r\n\r\n    <LinearLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"60dp\"\r\n        android:layout_centerVertical=\"true\"\r\n        android:layout_margin=\"5dp\"\r\n        android:orientation=\"horizontal\">\r\n\r\n\r\n        <LinearLayout\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:layout_gravity=\"center\"\r\n            android:layout_marginStart=\"8dp\"\r\n            android:orientation=\"vertical\">\r\n\r\n            <LinearLayout\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:orientation=\"vertical\">\r\n\r\n                <LinearLayout\r\n                    android:layout_width=\"match_parent\"\r\n                    android:layout_height=\"wrap_content\"\r\n                    android:orientation=\"horizontal\">\r\n                    <TextView\r\n                        android:id=\"@+id/tv_product_barcode\"\r\n                        android:layout_width=\"wrap_content\"\r\n                        android:layout_height=\"wrap_content\"\r\n                        android:maxLines=\"1\"\r\n                        android:text=\"条码\"\r\n                        android:textColor=\"@color/textColorGray\"\r\n                        android:textSize=\"12sp\" />\r\n                    <TextView\r\n                        android:id=\"@+id/tv_product_description\"\r\n                        android:layout_width=\"wrap_content\"\r\n                        android:layout_height=\"wrap_content\"\r\n                        android:layout_marginStart=\"10dp\"\r\n                        android:maxLines=\"1\"\r\n                        android:text=\"规格\"\r\n                        android:textColor=\"@color/textColorGray\"\r\n                        android:textSize=\"12sp\" />\r\n\r\n                    <TextView\r\n                        android:id=\"@+id/tv_sv_p_storage\"\r\n                        android:layout_width=\"0dp\"\r\n                        android:layout_weight=\"1\"\r\n                        android:layout_height=\"wrap_content\"\r\n                        android:gravity=\"end\"\r\n                        android:layout_marginStart=\"5dp\"\r\n                        android:maxLines=\"1\"\r\n                        android:text=\"库：20\"\r\n                        android:textColor=\"@color/textColorGray\"\r\n                        android:textSize=\"12sp\" />\r\n                </LinearLayout>\r\n\r\n            </LinearLayout>\r\n\r\n        </LinearLayout>\r\n    </LinearLayout>\r\n\r\n    <View\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"0.5dp\"\r\n        android:layout_alignParentBottom=\"true\"\r\n        android:background=\"@color/gray\" />\r\n</RelativeLayout>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/adapter_new_goods_item.xml	(revision 7a98ebfa2b79fea0668fb580bbc72aa8f2d220eb)
++++ app/src/main/res/layout/adapter_new_goods_item.xml	(date 1611929024146)
+@@ -3,72 +3,42 @@
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     android:id="@+id/ll_parent"
+     android:layout_width="match_parent"
+-    android:layout_height="50dp"
++    android:layout_height="210dp"
+     android:orientation="vertical">
+ 
+     <LinearLayout
+         android:layout_width="match_parent"
+-        android:layout_height="60dp"
++        android:layout_height="200dp"
+         android:layout_centerVertical="true"
+-        android:layout_margin="5dp"
+-        android:orientation="horizontal">
++        android:background="@color/white"
++        android:orientation="vertical">
+ 
+ 
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:layout_gravity="center"
+-            android:layout_marginStart="8dp"
+             android:orientation="vertical">
+ 
+-            <LinearLayout
++            <EditText
++                android:id="@+id/et_step_name"
+                 android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:orientation="vertical">
++                android:layout_height="40dp"
++                android:layout_marginStart="20dp"
++                android:layout_marginTop="10dp"
++                android:layout_marginEnd="20dp"
++                android:textColor="@color/textColorPrimary"
++                android:textSize="14sp"
++                android:hint="请输入步骤内容"/>
+ 
+-                <LinearLayout
+-                    android:layout_width="match_parent"
+-                    android:layout_height="wrap_content"
+-                    android:orientation="horizontal">
+-                    <TextView
+-                        android:id="@+id/tv_product_barcode"
+-                        android:layout_width="wrap_content"
+-                        android:layout_height="wrap_content"
+-                        android:maxLines="1"
+-                        android:text="条码"
+-                        android:textColor="@color/textColorGray"
+-                        android:textSize="12sp" />
+-                    <TextView
+-                        android:id="@+id/tv_product_description"
+-                        android:layout_width="wrap_content"
+-                        android:layout_height="wrap_content"
+-                        android:layout_marginStart="10dp"
+-                        android:maxLines="1"
+-                        android:text="规格"
+-                        android:textColor="@color/textColorGray"
+-                        android:textSize="12sp" />
+-
+-                    <TextView
+-                        android:id="@+id/tv_sv_p_storage"
+-                        android:layout_width="0dp"
+-                        android:layout_weight="1"
+-                        android:layout_height="wrap_content"
+-                        android:gravity="end"
+-                        android:layout_marginStart="5dp"
+-                        android:maxLines="1"
+-                        android:text="库：20"
+-                        android:textColor="@color/textColorGray"
+-                        android:textSize="12sp" />
+-                </LinearLayout>
+-
+-            </LinearLayout>
++            <ImageView
++                android:id="@+id/iv_step_desc"
++                android:layout_width="match_parent"
++                android:layout_height="match_parent"
++                android:layout_marginEnd="20dp"
++                android:layout_marginStart="20dp"
++                android:src="@mipmap/add_accent"/>
+ 
+         </LinearLayout>
+     </LinearLayout>
+-
+-    <View
+-        android:layout_width="match_parent"
+-        android:layout_height="0.5dp"
+-        android:layout_alignParentBottom="true"
+-        android:background="@color/gray" />
+ </RelativeLayout>
+Index: app/src/main/java/com/example/mem/adapter/YuyingInfoAdapter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.mem.adapter;\r\n\r\nimport android.view.LayoutInflater;\r\nimport android.view.View;\r\nimport android.view.ViewGroup;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.recyclerview.widget.RecyclerView;\r\n\r\nimport com.example.mem.R;\r\nimport com.example.mem.listen.OnItemClickListener;\r\n\r\nimport java.util.List;\r\n\r\nimport butterknife.ButterKnife;\r\n\r\n/**\r\n * 开单适配器\r\n */\r\npublic class YuyingInfoAdapter extends RecyclerView.Adapter<YuyingInfoAdapter.ViewHolder> {\r\n\r\n    private List<String> mList;\r\n\r\n\r\n\r\n\r\n    public YuyingInfoAdapter(List<String> listBeans) {\r\n        this.mList = listBeans;\r\n    }\r\n\r\n    @NonNull\r\n    @Override\r\n    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {\r\n\r\n        View view = LayoutInflater.from(parent.getContext())\r\n                .inflate(R.layout.adapter_new_goods_item, parent, false);\r\n        return new ViewHolder(view);\r\n    }\r\n\r\n    /*可以防止数据错乱*/\r\n    @Override\r\n    public int getItemViewType(int position) {\r\n        return position;\r\n    }\r\n\r\n    @Override\r\n    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {\r\n        String product = mList.get(position);\r\n    }\r\n\r\n    @Override\r\n    public int getItemCount() {\r\n        return mList == null ? 0 : mList.size();\r\n    }\r\n\r\n    static class ViewHolder extends RecyclerView.ViewHolder {\r\n        android.view.View View;\r\n\r\n\r\n        ViewHolder(android.view.View itemView) {\r\n            super(itemView);\r\n            View = itemView;\r\n            ButterKnife.bind(this, itemView);\r\n        }\r\n    }\r\n\r\n    private OnItemClickListener onItemClickListener;\r\n    /*设置点击监听*/\r\n    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {\r\n        this.onItemClickListener = onItemClickListener;\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/mem/adapter/YuyingInfoAdapter.java	(revision 7a98ebfa2b79fea0668fb580bbc72aa8f2d220eb)
++++ app/src/main/java/com/example/mem/adapter/YuyingInfoAdapter.java	(date 1611929550592)
+@@ -3,11 +3,15 @@
+ import android.view.LayoutInflater;
+ import android.view.View;
+ import android.view.ViewGroup;
++import android.widget.EditText;
++import android.widget.ImageView;
+ 
+ import androidx.annotation.NonNull;
+ import androidx.recyclerview.widget.RecyclerView;
+ 
+ import com.example.mem.R;
++import com.example.mem.app.MyApplication;
++import com.example.mem.entity.YunyingInfoBean;
+ import com.example.mem.listen.OnItemClickListener;
+ 
+ import java.util.List;
+@@ -19,12 +23,13 @@
+  */
+ public class YuyingInfoAdapter extends RecyclerView.Adapter<YuyingInfoAdapter.ViewHolder> {
+ 
+-    private List<String> mList;
++    private List<YunyingInfoBean> mList;
+ 
++    public YuyingInfoAdapter() {
+ 
++    }
+ 
+-
+-    public YuyingInfoAdapter(List<String> listBeans) {
++    public void setDatas(List<YunyingInfoBean> listBeans) {
+         this.mList = listBeans;
+     }
+ 
+@@ -45,7 +50,16 @@
+ 
+     @Override
+     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+-        String product = mList.get(position);
++        YunyingInfoBean yunyingInfoBean = mList.get(position);
++        if (position == mList.size() - 1) {
++            holder.etStep.setEnabled(false);
++            holder.etStep.setText("点击新增步骤");
++            holder.ivStepDesc.setImageDrawable(MyApplication.getInstance().getDrawable(R.mipmap.add_gray));
++        } if (position == mList.size() - 1) {
++            holder.etStep.setEnabled(true);
++            holder.etStep.setText(yunyingInfoBean.getStepName());
++            holder.ivStepDesc.setImageDrawable(MyApplication.getInstance().getDrawable(R.mipmap.add_gray));
++        }
+     }
+ 
+     @Override
+@@ -55,11 +69,13 @@
+ 
+     static class ViewHolder extends RecyclerView.ViewHolder {
+         android.view.View View;
+-
+-
++        public EditText etStep;
++        public ImageView ivStepDesc;
+         ViewHolder(android.view.View itemView) {
+             super(itemView);
+             View = itemView;
++            etStep = itemView.findViewById(R.id.et_step_name);
++            ivStepDesc = itemView.findViewById(R.id.iv_step_desc);
+             ButterKnife.bind(this, itemView);
+         }
+     }
+Index: app/src/main/java/com/example/mem/AddYunyingActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.mem;\r\n\r\nimport android.Manifest;\r\nimport android.content.Intent;\r\nimport android.content.pm.PackageManager;\r\nimport android.os.Build;\r\nimport android.os.Bundle;\r\nimport android.util.SparseArray;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.appcompat.app.AppCompatActivity;\r\nimport androidx.core.content.ContextCompat;\r\nimport androidx.databinding.DataBindingUtil;\r\nimport androidx.fragment.app.Fragment;\r\nimport androidx.fragment.app.FragmentManager;\r\nimport androidx.fragment.app.FragmentTransaction;\r\n\r\nimport com.example.mem.app.MyApplication;\r\nimport com.example.mem.databinding.ActivityAddYunyingBinding;\r\nimport com.example.mem.databinding.ActivityMainBinding;\r\nimport com.example.mem.fragment.FragmentShouye;\r\nimport com.example.mem.utils.CameraMenu;\r\nimport com.example.mem.utils.PhotoUtils;\r\nimport com.example.mem.utils.ToastUtils;\r\nimport com.gyf.barlibrary.ImmersionBar;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\n\r\npublic class AddYunyingActivity extends AppCompatActivity {\r\n    private ActivityAddYunyingBinding binding;\r\n    private SparseArray<Fragment> fragments = new SparseArray<>();\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        ImmersionBar.with(this).init();\r\n        binding = DataBindingUtil.setContentView(AddYunyingActivity.this, R.layout.activity_add_yunying);\r\n        initView();\r\n        initData();\r\n    }\r\n\r\n    private void initView() {\r\n\r\n    }\r\n\r\n    private void initData() {\r\n        binding.ivSelect.setOnClickListener(v -> {\r\n            selectPic();\r\n        });\r\n    }\r\n\r\n    /***************************************图片上传相关start***********************************/\r\n    private void selectPic() {\r\n        initPermission();\r\n    }\r\n\r\n    //申请两个权限，拍照和文件读写\r\n    //1、首先声明一个数组permissions，将需要的权限都放在里面\r\n    String[] permissions = new String[]{Manifest.permission.CAMERA,\r\n            Manifest.permission.WRITE_EXTERNAL_STORAGE,\r\n            Manifest.permission.READ_EXTERNAL_STORAGE};\r\n    //2、创建一个mPermissionList，逐个判断哪些权限未授予，未授予的权限存储到mPerrrmissionList中\r\n    List<String> mPermissionList = new ArrayList<>();\r\n    private final int mRequestCode = 100;//权限请求码\r\n\r\n    private void initPermission() {\r\n        mPermissionList.clear();//清空没有通过的权限\r\n\r\n        //逐个判断你要的权限是否已经通过\r\n        for (int i = 0; i < permissions.length; i++) {\r\n            if (ContextCompat.checkSelfPermission(this, permissions[i]) != PackageManager.PERMISSION_GRANTED) {\r\n                mPermissionList.add(permissions[i]);//添加还未授予的权限\r\n            }\r\n        }\r\n\r\n        //申请权限\r\n        if (mPermissionList.size() > 0 && Build.VERSION.SDK_INT >= 23) {//有权限没有通过，需要申请\r\n            requestPermissions(permissions, mRequestCode);\r\n        } else {\r\n            //选择头像\r\n            CameraMenu cameraMenu = new CameraMenu(this);\r\n            cameraMenu.showMenu();\r\n        }\r\n    }\r\n\r\n    //请求权限后回调的方法\r\n    //参数： requestCode  是我们自己定义的权限请求码\r\n    //参数： permissions  是我们请求的权限名称数组\r\n    //参数： grantResults 是我们在弹出页面后是否允许权限的标识数组，数组的长度对应的是权限名称数组的长度，数组的数据0表示允许权限，-1表示我们点击了禁止权限\r\n    @Override\r\n    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,\r\n                                           @NonNull int[] grantResults) {\r\n        super.onRequestPermissionsResult(requestCode, permissions, grantResults);\r\n        boolean hasPermissionDismiss = false;//有权限没有通过\r\n        if (mRequestCode == requestCode) {\r\n            for (int i = 0; i < grantResults.length; i++) {\r\n                if (grantResults[i] == -1) {\r\n                    hasPermissionDismiss = true;\r\n                }\r\n            }\r\n            //如果有权限没有被允许\r\n            if (hasPermissionDismiss) {\r\n            } else {\r\n                //权限允许后，进行下一步操作。。。\r\n                //选择头像\r\n                CameraMenu cameraMenu = new CameraMenu(this);\r\n                cameraMenu.showMenu();\r\n            }\r\n\r\n        }\r\n\r\n    }\r\n    /***************************************图片上传相关end***********************************/\r\n\r\n    @Override\r\n    public void onActivityResult(int requestCode, int resultCode, Intent data) {\r\n        super.onActivityResult(requestCode, resultCode, data);\r\n        ToastUtils.show(\"212121\");\r\n        switch (requestCode) {\r\n            case CameraMenu.SYSTEM_CAMERA:// 普通拍照\r\n                if (resultCode == RESULT_OK) {\r\n                    String imgPath = MyApplication.getInstance().getCapturePath();\r\n                    /*置空拍照路径*/\r\n                    MyApplication.getInstance().setCapturePath(\"\");\r\n\r\n                }\r\n                break;\r\n            case CameraMenu.CHOOSE_PHOTO:  // 打开相机选择图片的返回\r\n                if (resultCode == RESULT_OK && null != data) {\r\n                    String imgPath = PhotoUtils.getPath(this, data.getData());\r\n\r\n                }\r\n                break;\r\n\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/mem/AddYunyingActivity.java	(revision 7a98ebfa2b79fea0668fb580bbc72aa8f2d220eb)
++++ app/src/main/java/com/example/mem/AddYunyingActivity.java	(date 1611927725403)
+@@ -14,10 +14,13 @@
+ import androidx.fragment.app.Fragment;
+ import androidx.fragment.app.FragmentManager;
+ import androidx.fragment.app.FragmentTransaction;
++import androidx.recyclerview.widget.LinearLayoutManager;
+ 
++import com.example.mem.adapter.YuyingInfoAdapter;
+ import com.example.mem.app.MyApplication;
+ import com.example.mem.databinding.ActivityAddYunyingBinding;
+ import com.example.mem.databinding.ActivityMainBinding;
++import com.example.mem.entity.YunyingInfoBean;
+ import com.example.mem.fragment.FragmentShouye;
+ import com.example.mem.utils.CameraMenu;
+ import com.example.mem.utils.PhotoUtils;
+@@ -29,7 +32,8 @@
+ 
+ public class AddYunyingActivity extends AppCompatActivity {
+     private ActivityAddYunyingBinding binding;
+-    private SparseArray<Fragment> fragments = new SparseArray<>();
++    private YuyingInfoAdapter yuyingInfoAdapter;
++    private List<YunyingInfoBean> yunyingInfoBeanList = new ArrayList<>();
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+@@ -40,14 +44,30 @@
+     }
+ 
+     private void initView() {
+-
++        LinearLayoutManager layoutManager = new LinearLayoutManager(this );
++        // 设置布局管理器
++        binding.rvYunyingInfo.setLayoutManager(layoutManager);
++        yuyingInfoAdapter = new YuyingInfoAdapter();
++        yuyingInfoAdapter.setDatas(yunyingInfoBeanList);
++        binding.rvYunyingInfo.setAdapter(yuyingInfoAdapter);
++        yuyingInfoAdapter.notifyDataSetChanged();
+     }
+ 
+     private void initData() {
+         binding.ivSelect.setOnClickListener(v -> {
+             selectPic();
+         });
++
++        // 初始化数据
++        YunyingInfoBean yunyingInfoBean = new YunyingInfoBean();
++        yunyingInfoBean.setStepName("");
++        yunyingInfoBean.setImagePath("");
++        yunyingInfoBeanList.add(yunyingInfoBean);
++        yuyingInfoAdapter.setDatas(yunyingInfoBeanList);
++        binding.rvYunyingInfo.setAdapter(yuyingInfoAdapter);
+     }
++
++
+ 
+     /***************************************图片上传相关start***********************************/
+     private void selectPic() {
+Index: app/src/main/java/com/example/mem/fragment/FragmentShouye.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.mem.fragment;\r\n\r\n\r\nimport android.Manifest;\r\nimport android.content.Intent;\r\nimport android.content.pm.PackageManager;\r\nimport android.os.Build;\r\nimport android.os.Bundle;\r\nimport android.text.Editable;\r\nimport android.text.TextUtils;\r\nimport android.text.TextWatcher;\r\nimport android.util.Log;\r\nimport android.util.TypedValue;\r\nimport android.view.LayoutInflater;\r\nimport android.view.View;\r\nimport android.view.ViewGroup;\r\nimport android.view.inputmethod.EditorInfo;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.annotation.Nullable;\r\nimport androidx.core.content.ContextCompat;\r\nimport androidx.databinding.DataBindingUtil;\r\nimport androidx.fragment.app.Fragment;\r\n\r\nimport com.example.mem.AddYunyingActivity;\r\nimport com.example.mem.R;\r\nimport com.example.mem.adapter.YuyingInfoAdapter;\r\nimport com.example.mem.databinding.FragmentShouyeBinding;\r\nimport com.example.mem.listen.OnItemClickListener;\r\nimport com.example.mem.utils.CameraMenu;\r\nimport com.example.mem.utils.ToastUtils;\r\nimport com.example.mem.utils.WrapContentLinearLayoutManager;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\n\r\n\r\npublic class FragmentShouye extends Fragment implements OnItemClickListener {\r\n    private FragmentShouyeBinding binding;\r\n    protected View rootView;\r\n    private YuyingInfoAdapter yuyingInfoAdapter;\r\n    private List<String> datas;\r\n\r\n    @Override\r\n    public void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n\r\n    }\r\n\r\n    @Nullable\r\n    @Override\r\n    public View onCreateView(@Nullable LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {\r\n        try {\r\n            if (rootView == null) {\r\n                assert inflater != null;\r\n                binding = DataBindingUtil.inflate(inflater, R.layout.fragment_shouye, container, false);\r\n                rootView = binding.getRoot();\r\n                initView();\r\n                initData();\r\n                initViewListen();\r\n            }\r\n        } catch (Exception e) {\r\n            e.printStackTrace();\r\n        }\r\n        return rootView;\r\n    }\r\n\r\n    private void initView() {\r\n        /*产品列表*/\r\n        binding.rvShopList.setLayoutManager(new WrapContentLinearLayoutManager(FragmentShouye.this.getActivity()));\r\n        yuyingInfoAdapter = new YuyingInfoAdapter(datas);\r\n        binding.rvShopList.setAdapter(yuyingInfoAdapter);\r\n        yuyingInfoAdapter.setOnItemClickListener(this);\r\n\r\n        // 设置下拉刷新的样式\r\n        binding.swipeRefreshLayout.setColorSchemeResources(R.color.qq_blue);\r\n        binding.swipeRefreshLayout.setProgressViewOffset(false, 0, (int) TypedValue\r\n                .applyDimension(TypedValue.COMPLEX_UNIT_DIP, 48, getResources().getDisplayMetrics()));\r\n    }\r\n\r\n    private void initData() {\r\n\r\n    }\r\n\r\n    private void initViewListen (){\r\n        /*搜索输入监听*/\r\n        binding.head.editSearch.addTextChangedListener(new TextWatcher() {\r\n            @Override\r\n            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {\r\n\r\n            }\r\n\r\n            @Override\r\n            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {\r\n\r\n            }\r\n\r\n            @Override\r\n            public void afterTextChanged(Editable editable) {\r\n                if (TextUtils.isEmpty(editable)) {\r\n                    binding.head.tvSearch.setVisibility(View.GONE);\r\n                } else {\r\n                    binding.head.tvSearch.setVisibility(View.VISIBLE);\r\n                }\r\n            }\r\n        });\r\n\r\n        /*处理扫描结果*/\r\n        binding.head.editSearch.setOnEditorActionListener((textView, actionId, keyEvent) -> {\r\n            if (actionId == EditorInfo.IME_ACTION_SEARCH) {\r\n                /*回车搜索*/\r\n                String search = binding.head.editSearch.getText().toString();\r\n                if (TextUtils.isEmpty(search)) {\r\n                    ToastUtils.show(\"请输入数据\");\r\n                    return false;\r\n                }\r\n\r\n                return true;\r\n            }\r\n            return true;\r\n        });\r\n\r\n        /*搜索监听*/\r\n        binding.head.tvSearch.setOnClickListener(view -> {\r\n\r\n        });\r\n\r\n        binding.tvSelect.setOnClickListener(view -> {\r\n            startActivity(new Intent(this.getContext(), AddYunyingActivity.class));\r\n        });\r\n    }\r\n\r\n    @Override\r\n    public void onItemClick(View view, int position) {\r\n\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/mem/fragment/FragmentShouye.java	(revision 7a98ebfa2b79fea0668fb580bbc72aa8f2d220eb)
++++ app/src/main/java/com/example/mem/fragment/FragmentShouye.java	(date 1611928445186)
+@@ -68,7 +68,7 @@
+     private void initView() {
+         /*产品列表*/
+         binding.rvShopList.setLayoutManager(new WrapContentLinearLayoutManager(FragmentShouye.this.getActivity()));
+-        yuyingInfoAdapter = new YuyingInfoAdapter(datas);
++        yuyingInfoAdapter = new YuyingInfoAdapter();
+         binding.rvShopList.setAdapter(yuyingInfoAdapter);
+         yuyingInfoAdapter.setOnItemClickListener(this);
+ 
+Index: app/src/main/res/layout/activity_add_yunying.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<layout xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:android=\"http://schemas.android.com/apk/res/android\">\r\n    <androidx.coordinatorlayout.widget.CoordinatorLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\">\r\n        <LinearLayout\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\">\r\n            <ImageView\r\n                android:id=\"@+id/iv_select\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"match_parent\"/>\r\n        </LinearLayout>\r\n\r\n    </androidx.coordinatorlayout.widget.CoordinatorLayout>\r\n</layout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_add_yunying.xml	(revision 7a98ebfa2b79fea0668fb580bbc72aa8f2d220eb)
++++ app/src/main/res/layout/activity_add_yunying.xml	(date 1611928774815)
+@@ -4,9 +4,32 @@
+     <androidx.coordinatorlayout.widget.CoordinatorLayout
+         android:layout_width="match_parent"
+         android:layout_height="match_parent">
++        <include
++            android:id="@+id/head"
++            layout="@layout/activity_head_normal" />
+         <LinearLayout
+             android:layout_width="match_parent"
+-            android:layout_height="match_parent">
++            android:layout_height="match_parent"
++            android:orientation="vertical"
++            android:background="@color/color_f7"
++            app:layout_behavior="@string/appbar_scrolling_view_behavior">
++            <EditText
++                android:layout_width="match_parent"
++                android:layout_height="40dp"
++                android:layout_marginStart="20dp"
++                android:layout_marginTop="10dp"
++                android:layout_marginEnd="20dp"
++                android:textColor="@color/textColorPrimary"
++                android:textSize="14sp"
++                android:hint="请输入标题"/>
++            <androidx.recyclerview.widget.RecyclerView
++                android:id="@+id/rv_yunying_info"
++                android:layout_width="match_parent"
++                android:layout_height="match_parent"
++                android:layout_marginStart="20dp"
++                android:layout_marginTop="10dp"
++                android:layout_marginBottom="10dp"
++                android:layout_marginEnd="20dp"/>
+             <ImageView
+                 android:id="@+id/iv_select"
+                 android:layout_width="match_parent"
+Index: app/src/main/res/layout/fragment_shouye.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<layout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\">\r\n\r\n    <androidx.coordinatorlayout.widget.CoordinatorLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\"\r\n        android:fitsSystemWindows=\"true\">\r\n        <include\r\n            android:id=\"@+id/head\"\r\n            layout=\"@layout/activity_head_new_goods\" />\r\n        <RelativeLayout\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            app:layout_behavior=\"@string/appbar_scrolling_view_behavior\">\r\n\r\n            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout\r\n                android:id=\"@+id/swipeRefreshLayout\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"match_parent\"\r\n                android:orientation=\"vertical\">\r\n                <RelativeLayout\r\n                    android:layout_width=\"match_parent\"\r\n                    android:layout_height=\"match_parent\">\r\n                    <androidx.recyclerview.widget.RecyclerView\r\n                        android:id=\"@+id/rv_shop_list\"\r\n                        android:layout_width=\"match_parent\"\r\n                        android:layout_height=\"match_parent\"\r\n                        android:layout_margin=\"10dp\"\r\n                        android:clipToPadding=\"false\"\r\n                        android:scrollbarStyle=\"outsideOverlay\"\r\n                        android:scrollbars=\"none\" />\r\n                    <ImageView\r\n                        android:id=\"@+id/iv_no_data\"\r\n                        android:layout_width=\"wrap_content\"\r\n                        android:layout_height=\"wrap_content\"\r\n                        android:layout_centerInParent=\"true\"\r\n                        android:src=\"@mipmap/ic_no_data\"/>\r\n                </RelativeLayout>\r\n            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>\r\n\r\n            <TextView\r\n                android:id=\"@+id/tv_select\"\r\n                android:layout_width=\"50dp\"\r\n                android:layout_height=\"50dp\"\r\n                android:text=\"12123142434\"/>\r\n        </RelativeLayout>\r\n    </androidx.coordinatorlayout.widget.CoordinatorLayout>\r\n</layout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/fragment_shouye.xml	(revision 7a98ebfa2b79fea0668fb580bbc72aa8f2d220eb)
++++ app/src/main/res/layout/fragment_shouye.xml	(date 1611925752690)
+@@ -8,7 +8,7 @@
+         android:fitsSystemWindows="true">
+         <include
+             android:id="@+id/head"
+-            layout="@layout/activity_head_new_goods" />
++            layout="@layout/activity_head_home" />
+         <RelativeLayout
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/compiler.xml	(date 1611834328093)
++++ .idea/compiler.xml	(date 1611834328093)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="CompilerConfiguration">
++    <bytecodeTargetLevel target="1.8" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/encodings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"Encoding\">\r\n    <file url=\"PROJECT\" charset=\"UTF-8\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/encodings.xml	(revision 7a98ebfa2b79fea0668fb580bbc72aa8f2d220eb)
++++ .idea/encodings.xml	(date 1611928313649)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="Encoding">
++  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+     <file url="PROJECT" charset="UTF-8" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"GradleMigrationSettings\" migrationVersion=\"1\" />\r\n  <component name=\"GradleSettings\">\r\n    <option name=\"linkedExternalProjectsSettings\">\r\n      <GradleProjectSettings>\r\n        <option name=\"testRunner\" value=\"PLATFORM\" />\r\n        <option name=\"distributionType\" value=\"DEFAULT_WRAPPED\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"gradleJvm\" value=\"1.8\" />\r\n        <option name=\"modules\">\r\n          <set>\r\n            <option value=\"$PROJECT_DIR$\" />\r\n            <option value=\"$PROJECT_DIR$/app\" />\r\n          </set>\r\n        </option>\r\n        <option name=\"resolveModulePerSourceSet\" value=\"false\" />\r\n      </GradleProjectSettings>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/gradle.xml	(revision 7a98ebfa2b79fea0668fb580bbc72aa8f2d220eb)
++++ .idea/gradle.xml	(date 1611834328102)
+@@ -4,10 +4,10 @@
+   <component name="GradleSettings">
+     <option name="linkedExternalProjectsSettings">
+       <GradleProjectSettings>
++        <option name="delegatedBuild" value="false" />
+         <option name="testRunner" value="PLATFORM" />
+         <option name="distributionType" value="DEFAULT_WRAPPED" />
+         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+-        <option name="gradleJvm" value="1.8" />
+         <option name="modules">
+           <set>
+             <option value="$PROJECT_DIR$" />
+@@ -15,6 +15,7 @@
+           </set>
+         </option>
+         <option name="resolveModulePerSourceSet" value="false" />
++        <option name="useQualifiedModuleNames" value="true" />
+       </GradleProjectSettings>
+     </option>
+   </component>
+Index: app/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>apply plugin: 'com.android.application'\r\n\r\nandroid {\r\n    compileSdkVersion 30\r\n    buildToolsVersion \"30.0.2\"\r\n\r\n    defaultConfig {\r\n        applicationId \"com.example.mem\"\r\n        minSdkVersion 21\r\n        targetSdkVersion 30\r\n        versionCode 1\r\n        versionName \"1.0\"\r\n\r\n        testInstrumentationRunner \"androidx.test.runner.AndroidJUnitRunner\"\r\n    }\r\n\r\n    dataBinding {\r\n        enabled = true\r\n    }\r\n\r\n    buildTypes {\r\n        release {\r\n            minifyEnabled false\r\n            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'\r\n        }\r\n    }\r\n    compileOptions {\r\n        sourceCompatibility JavaVersion.VERSION_1_8\r\n        targetCompatibility JavaVersion.VERSION_1_8\r\n    }\r\n}\r\n\r\ndependencies {\r\n    implementation fileTree(dir: \"libs\", include: [\"*.jar\"])\r\n    implementation 'androidx.appcompat:appcompat:1.2.0'\r\n    implementation 'com.google.android.material:material:1.2.1'\r\n    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'\r\n    implementation 'androidx.navigation:navigation-fragment:2.3.2'\r\n    implementation 'androidx.navigation:navigation-ui:2.3.2'\r\n    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'\r\n    implementation 'com.jakewharton:butterknife:10.0.0'\r\n    annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'\r\n    // 沉浸式\r\n    implementation 'com.gyf.barlibrary:barlibrary:2.3.0'\r\n    // 底部tabbar\r\n    implementation 'com.roughike:bottom-bar:2.3.1'\r\n    testImplementation 'junit:junit:4.12'\r\n    androidTestImplementation 'androidx.test.ext:junit:1.1.2'\r\n    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/build.gradle	(revision 7a98ebfa2b79fea0668fb580bbc72aa8f2d220eb)
++++ app/build.gradle	(date 1611834328015)
+@@ -11,7 +11,6 @@
+         versionCode 1
+         versionName "1.0"
+ 
+-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+     }
+ 
+     dataBinding {
+@@ -44,8 +43,4 @@
+     implementation 'com.gyf.barlibrary:barlibrary:2.3.0'
+     // 底部tabbar
+     implementation 'com.roughike:bottom-bar:2.3.1'
+-    testImplementation 'junit:junit:4.12'
+-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+-
+ }
+\ No newline at end of file
+Index: .idea/jarRepositories.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"RemoteRepositoriesConfiguration\">\r\n    <remote-repository>\r\n      <option name=\"id\" value=\"central\" />\r\n      <option name=\"name\" value=\"Maven Central repository\" />\r\n      <option name=\"url\" value=\"https://repo1.maven.org/maven2\" />\r\n    </remote-repository>\r\n    <remote-repository>\r\n      <option name=\"id\" value=\"jboss.community\" />\r\n      <option name=\"name\" value=\"JBoss Community repository\" />\r\n      <option name=\"url\" value=\"https://repository.jboss.org/nexus/content/repositories/public/\" />\r\n    </remote-repository>\r\n    <remote-repository>\r\n      <option name=\"id\" value=\"BintrayJCenter\" />\r\n      <option name=\"name\" value=\"BintrayJCenter\" />\r\n      <option name=\"url\" value=\"https://jcenter.bintray.com/\" />\r\n    </remote-repository>\r\n    <remote-repository>\r\n      <option name=\"id\" value=\"Google\" />\r\n      <option name=\"name\" value=\"Google\" />\r\n      <option name=\"url\" value=\"https://dl.google.com/dl/android/maven2/\" />\r\n    </remote-repository>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/jarRepositories.xml	(revision 7a98ebfa2b79fea0668fb580bbc72aa8f2d220eb)
++++ .idea/jarRepositories.xml	(date 1611834343128)
+@@ -21,5 +21,35 @@
+       <option name="name" value="Google" />
+       <option name="url" value="https://dl.google.com/dl/android/maven2/" />
+     </remote-repository>
++    <remote-repository>
++      <option name="id" value="MavenRepo" />
++      <option name="name" value="MavenRepo" />
++      <option name="url" value="https://repo.maven.apache.org/maven2/" />
++    </remote-repository>
++    <remote-repository>
++      <option name="id" value="maven2" />
++      <option name="name" value="maven2" />
++      <option name="url" value="http://oss.jfrog.org/artifactory/oss-snapshot-local/" />
++    </remote-repository>
++    <remote-repository>
++      <option name="id" value="maven" />
++      <option name="name" value="maven" />
++      <option name="url" value="https://maven.google.com" />
++    </remote-repository>
++    <remote-repository>
++      <option name="id" value="maven5" />
++      <option name="name" value="maven5" />
++      <option name="url" value="http://maven.landicorp.com/repository/releases/" />
++    </remote-repository>
++    <remote-repository>
++      <option name="id" value="maven3" />
++      <option name="name" value="maven3" />
++      <option name="url" value="https://jitpack.io" />
++    </remote-repository>
++    <remote-repository>
++      <option name="id" value="maven4" />
++      <option name="name" value="maven4" />
++      <option name="url" value="http://maven.landicorp.com/repository/ept-and-sdk/" />
++    </remote-repository>
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"CMakeSettings\">\r\n    <configurations>\r\n      <configuration PROFILE_NAME=\"Debug\" CONFIG_NAME=\"Debug\" />\r\n    </configurations>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_1_8\" project-jdk-name=\"1.8\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/build/classes\" />\r\n  </component>\r\n  <component name=\"ProjectType\">\r\n    <option name=\"id\" value=\"Android\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/misc.xml	(revision 7a98ebfa2b79fea0668fb580bbc72aa8f2d220eb)
++++ .idea/misc.xml	(date 1611834328043)
+@@ -1,11 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="CMakeSettings">
+-    <configurations>
+-      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+-    </configurations>
+-  </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/build/classes" />
+   </component>
+   <component name="ProjectType">
+Index: .idea/codeStyles/Project.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"ProjectCodeStyleConfiguration\">\r\n  <code_scheme name=\"Project\" version=\"173\">\r\n    <JetCodeStyleSettings>\r\n      <option name=\"PACKAGES_TO_USE_STAR_IMPORTS\">\r\n        <value>\r\n          <package name=\"java.util\" alias=\"false\" withSubpackages=\"false\" />\r\n          <package name=\"kotlinx.android.synthetic\" alias=\"false\" withSubpackages=\"true\" />\r\n          <package name=\"io.ktor\" alias=\"false\" withSubpackages=\"true\" />\r\n        </value>\r\n      </option>\r\n      <option name=\"PACKAGES_IMPORT_LAYOUT\">\r\n        <value>\r\n          <package name=\"\" alias=\"false\" withSubpackages=\"true\" />\r\n          <package name=\"java\" alias=\"false\" withSubpackages=\"true\" />\r\n          <package name=\"javax\" alias=\"false\" withSubpackages=\"true\" />\r\n          <package name=\"kotlin\" alias=\"false\" withSubpackages=\"true\" />\r\n          <package name=\"\" alias=\"true\" withSubpackages=\"true\" />\r\n        </value>\r\n      </option>\r\n    </JetCodeStyleSettings>\r\n    <codeStyleSettings language=\"XML\">\r\n      <indentOptions>\r\n        <option name=\"CONTINUATION_INDENT_SIZE\" value=\"4\" />\r\n      </indentOptions>\r\n      <arrangement>\r\n        <rules>\r\n          <section>\r\n            <rule>\r\n              <match>\r\n                <AND>\r\n                  <NAME>xmlns:android</NAME>\r\n                  <XML_ATTRIBUTE />\r\n                  <XML_NAMESPACE>^$</XML_NAMESPACE>\r\n                </AND>\r\n              </match>\r\n            </rule>\r\n          </section>\r\n          <section>\r\n            <rule>\r\n              <match>\r\n                <AND>\r\n                  <NAME>xmlns:.*</NAME>\r\n                  <XML_ATTRIBUTE />\r\n                  <XML_NAMESPACE>^$</XML_NAMESPACE>\r\n                </AND>\r\n              </match>\r\n              <order>BY_NAME</order>\r\n            </rule>\r\n          </section>\r\n          <section>\r\n            <rule>\r\n              <match>\r\n                <AND>\r\n                  <NAME>.*:id</NAME>\r\n                  <XML_ATTRIBUTE />\r\n                  <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>\r\n                </AND>\r\n              </match>\r\n            </rule>\r\n          </section>\r\n          <section>\r\n            <rule>\r\n              <match>\r\n                <AND>\r\n                  <NAME>.*:name</NAME>\r\n                  <XML_ATTRIBUTE />\r\n                  <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>\r\n                </AND>\r\n              </match>\r\n            </rule>\r\n          </section>\r\n          <section>\r\n            <rule>\r\n              <match>\r\n                <AND>\r\n                  <NAME>name</NAME>\r\n                  <XML_ATTRIBUTE />\r\n                  <XML_NAMESPACE>^$</XML_NAMESPACE>\r\n                </AND>\r\n              </match>\r\n            </rule>\r\n          </section>\r\n          <section>\r\n            <rule>\r\n              <match>\r\n                <AND>\r\n                  <NAME>style</NAME>\r\n                  <XML_ATTRIBUTE />\r\n                  <XML_NAMESPACE>^$</XML_NAMESPACE>\r\n                </AND>\r\n              </match>\r\n            </rule>\r\n          </section>\r\n          <section>\r\n            <rule>\r\n              <match>\r\n                <AND>\r\n                  <NAME>.*</NAME>\r\n                  <XML_ATTRIBUTE />\r\n                  <XML_NAMESPACE>^$</XML_NAMESPACE>\r\n                </AND>\r\n              </match>\r\n              <order>BY_NAME</order>\r\n            </rule>\r\n          </section>\r\n          <section>\r\n            <rule>\r\n              <match>\r\n                <AND>\r\n                  <NAME>.*</NAME>\r\n                  <XML_ATTRIBUTE />\r\n                  <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>\r\n                </AND>\r\n              </match>\r\n              <order>ANDROID_ATTRIBUTE_ORDER</order>\r\n            </rule>\r\n          </section>\r\n          <section>\r\n            <rule>\r\n              <match>\r\n                <AND>\r\n                  <NAME>.*</NAME>\r\n                  <XML_ATTRIBUTE />\r\n                  <XML_NAMESPACE>.*</XML_NAMESPACE>\r\n                </AND>\r\n              </match>\r\n              <order>BY_NAME</order>\r\n            </rule>\r\n          </section>\r\n        </rules>\r\n      </arrangement>\r\n    </codeStyleSettings>\r\n  </code_scheme>\r\n</component>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/codeStyles/Project.xml	(revision 7a98ebfa2b79fea0668fb580bbc72aa8f2d220eb)
++++ .idea/codeStyles/Project.xml	(date 1611834328049)
+@@ -1,23 +1,5 @@
+ <component name="ProjectCodeStyleConfiguration">
+   <code_scheme name="Project" version="173">
+-    <JetCodeStyleSettings>
+-      <option name="PACKAGES_TO_USE_STAR_IMPORTS">
+-        <value>
+-          <package name="java.util" alias="false" withSubpackages="false" />
+-          <package name="kotlinx.android.synthetic" alias="false" withSubpackages="true" />
+-          <package name="io.ktor" alias="false" withSubpackages="true" />
+-        </value>
+-      </option>
+-      <option name="PACKAGES_IMPORT_LAYOUT">
+-        <value>
+-          <package name="" alias="false" withSubpackages="true" />
+-          <package name="java" alias="false" withSubpackages="true" />
+-          <package name="javax" alias="false" withSubpackages="true" />
+-          <package name="kotlin" alias="false" withSubpackages="true" />
+-          <package name="" alias="true" withSubpackages="true" />
+-        </value>
+-      </option>
+-    </JetCodeStyleSettings>
+     <codeStyleSettings language="XML">
+       <indentOptions>
+         <option name="CONTINUATION_INDENT_SIZE" value="4" />
+Index: build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// Top-level build file where you can add configuration options common to all sub-projects/modules.\r\nbuildscript {\r\n    repositories {\r\n        google()\r\n        jcenter()\r\n    }\r\n    dependencies {\r\n        classpath \"com.android.tools.build:gradle:4.0.2\"\r\n\r\n        // NOTE: Do not place your application dependencies here; they belong\r\n        // in the individual module build.gradle files\r\n    }\r\n}\r\n\r\nallprojects {\r\n    repositories {\r\n        google()\r\n        jcenter()\r\n        mavenCentral()\r\n        maven { url 'https://maven.google.com' }\r\n        maven { url 'http://oss.jfrog.org/artifactory/oss-snapshot-local/' }\r\n        maven { url \"https://jitpack.io\" }\r\n        maven { url \"http://maven.landicorp.com/repository/ept-and-sdk/\" }\r\n        maven { url \"http://maven.landicorp.com/repository/releases/\" }\r\n    }\r\n}\r\n\r\ntask clean(type: Delete) {\r\n    delete rootProject.buildDir\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- build.gradle	(revision 7a98ebfa2b79fea0668fb580bbc72aa8f2d220eb)
++++ build.gradle	(date 1611834328112)
+@@ -1,6 +1,9 @@
+ // Top-level build file where you can add configuration options common to all sub-projects/modules.
+ buildscript {
+     repositories {
++        maven { url 'https://maven.aliyun.com/repository/google' }
++        maven { url 'https://maven.aliyun.com/repository/jcenter' }
++        maven { url 'http://maven.aliyun.com/nexus/content/groups/public' }
+         google()
+         jcenter()
+     }
+diff --git app/src/main/res/layout/activity_head_new_goods.xml app/src/main/res/layout/activity_head_home.xml
+rename from app/src/main/res/layout/activity_head_new_goods.xml
+rename to app/src/main/res/layout/activity_head_home.xml

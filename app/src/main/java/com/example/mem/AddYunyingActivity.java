@@ -5,7 +5,9 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.SparseArray;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,11 +16,15 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.example.mem.adapter.YuyingInfoAdapter;
 import com.example.mem.app.MyApplication;
 import com.example.mem.databinding.ActivityAddYunyingBinding;
 import com.example.mem.databinding.ActivityMainBinding;
+import com.example.mem.entity.YunyingInfoBean;
 import com.example.mem.fragment.FragmentShouye;
+import com.example.mem.listen.OnYunyingStepHandleItemClickListener;
 import com.example.mem.utils.CameraMenu;
 import com.example.mem.utils.PhotoUtils;
 import com.example.mem.utils.ToastUtils;
@@ -28,9 +34,11 @@ import com.gyf.barlibrary.ImmersionBar;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddYunyingActivity extends AppCompatActivity {
+public class AddYunyingActivity extends AppCompatActivity implements OnYunyingStepHandleItemClickListener {
     private ActivityAddYunyingBinding binding;
-    private SparseArray<Fragment> fragments = new SparseArray<>();
+    private YuyingInfoAdapter yuyingInfoAdapter;
+    private List<YunyingInfoBean> yunyingInfoBeanList = new ArrayList<>();
+    private int selectPicIndex = -1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,14 +49,31 @@ public class AddYunyingActivity extends AppCompatActivity {
     }
 
     private void initView() {
-
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this );
+        // 设置布局管理器
+        binding.rvYunyingInfo.setLayoutManager(layoutManager);
+        yuyingInfoAdapter = new YuyingInfoAdapter();
+        yuyingInfoAdapter.setDatas(yunyingInfoBeanList);
+        yuyingInfoAdapter.setOnItemClickListener(this);
+        binding.rvYunyingInfo.setAdapter(yuyingInfoAdapter);
+        yuyingInfoAdapter.notifyDataSetChanged();
     }
 
     private void initData() {
         binding.ivSelect.setOnClickListener(v -> {
             selectPic();
         });
+
+        // 初始化数据
+        YunyingInfoBean yunyingInfoBean = new YunyingInfoBean();
+        yunyingInfoBean.setStepName("");
+        yunyingInfoBean.setImagePath("");
+        yunyingInfoBeanList.add(yunyingInfoBean);
+        yuyingInfoAdapter.setDatas(yunyingInfoBeanList);
+        yuyingInfoAdapter.notifyDataSetChanged();
     }
+
+
 
     /***************************************图片上传相关start***********************************/
     private void selectPic() {
@@ -123,17 +148,48 @@ public class AddYunyingActivity extends AppCompatActivity {
                     String imgPath = MyApplication.getInstance().getCapturePath();
                     /*置空拍照路径*/
                     MyApplication.getInstance().setCapturePath("");
-                    UIUtils.setGoodImgPath(imgPath, binding.ivSelect);
+                    if (selectPicIndex > -1) {
+                        yunyingInfoBeanList.get(selectPicIndex).setImagePath(imgPath);
+                        yuyingInfoAdapter.setDatas(yunyingInfoBeanList);
+                        yuyingInfoAdapter.notifyDataSetChanged();
+                    }
                 }
                 break;
             case CameraMenu.CHOOSE_PHOTO:  // 打开相机选择图片的返回
                 if (resultCode == RESULT_OK && null != data) {
                     String imgPath = PhotoUtils.getPath(this, data.getData());
-                    ToastUtils.show(imgPath);
-                    UIUtils.setGoodImgPath(imgPath, binding.ivSelect);
+                    Log.e("图片地址", imgPath);
+                    if (selectPicIndex > -1) {
+                        yunyingInfoBeanList.get(selectPicIndex).setImagePath(imgPath);
+                        yuyingInfoAdapter.setDatas(yunyingInfoBeanList);
+                        yuyingInfoAdapter.notifyDataSetChanged();
+                    }
                 }
                 break;
 
         }
+    }
+
+    @Override
+    public void addStep(View view, int position) {
+        // 新增步骤
+        YunyingInfoBean yunyingInfoBean = new YunyingInfoBean();
+        yunyingInfoBean.setStepName("");
+        yunyingInfoBean.setImagePath("");
+        yunyingInfoBeanList.add(yunyingInfoBeanList.size() - 1, yunyingInfoBean);
+        binding.rvYunyingInfo.scrollToPosition(yunyingInfoBeanList.size() - 1);
+        yuyingInfoAdapter.setDatas(yunyingInfoBeanList);
+        yuyingInfoAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void stepNameChange(View view, int position, String text) {
+
+    }
+
+    @Override
+    public void stepDescChange(View view, int position) {
+        selectPicIndex = position;
+        selectPic();
     }
 }

@@ -13,17 +13,17 @@ public class UIUtils {
         try {
             if (TextUtils.isEmpty(path)) {
                 Picasso.with(productImg.getContext())
-                        .load(R.mipmap.ic_add_show)
-                        .placeholder(R.mipmap.ic_add_show)
-                        .error(R.mipmap.ic_add_show)
+                        .load(R.mipmap.add_accent)
+                        .placeholder(R.mipmap.add_accent)
+                        .error(R.mipmap.add_accent)
                         .resize(100, 100)
                         .config(Bitmap.Config.RGB_565)
                         .into(productImg);
             } else {
                 Picasso.with(productImg.getContext())
                         .load("file://" + path)
-                        .placeholder(R.mipmap.ic_add_show)
-                        .error(R.mipmap.ic_add_show)
+                        .placeholder(R.mipmap.add_accent)
+                        .error(R.mipmap.add_accent)
                         .resize(100, 100)
                         .config(Bitmap.Config.RGB_565)
                         .into(productImg);

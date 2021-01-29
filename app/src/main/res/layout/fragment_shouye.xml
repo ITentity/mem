@@ -8,7 +8,7 @@
         android:fitsSystemWindows="true">
         <include
             android:id="@+id/head"
-            layout="@layout/activity_head_new_goods" />
+            layout="@layout/activity_head_home" />
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"

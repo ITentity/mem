@@ -68,9 +68,9 @@ public class FragmentShouye extends Fragment implements OnItemClickListener {
     private void initView() {
         /*产品列表*/
         binding.rvShopList.setLayoutManager(new WrapContentLinearLayoutManager(FragmentShouye.this.getActivity()));
-        yuyingInfoAdapter = new YuyingInfoAdapter(datas);
+        yuyingInfoAdapter = new YuyingInfoAdapter();
         binding.rvShopList.setAdapter(yuyingInfoAdapter);
-        yuyingInfoAdapter.setOnItemClickListener(this);
+
 
         // 设置下拉刷新的样式
         binding.swipeRefreshLayout.setColorSchemeResources(R.color.qq_blue);
