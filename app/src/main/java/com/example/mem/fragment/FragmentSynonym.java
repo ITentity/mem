@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,13 +15,11 @@ import android.view.inputmethod.EditorInfo;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.mem.AddYunyingActivity;
 import com.example.mem.R;
 import com.example.mem.ShowYunyingActivity;
 import com.example.mem.adapter.ShowYuyingAdapter;
-import com.example.mem.adapter.YuyingInfoAdapter;
 import com.example.mem.databinding.FragmentShouyeBinding;
 import com.example.mem.entity.DB.YuyingInfoDB;
 import com.example.mem.listen.OnItemClickListener;
@@ -35,7 +32,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class FragmentShouye extends Fragment implements OnItemClickListener {
+public class FragmentSynonym extends Fragment implements OnItemClickListener {
     private FragmentShouyeBinding binding;
     protected View rootView;
     private ShowYuyingAdapter showYuyingAdapter;
@@ -89,7 +86,7 @@ public class FragmentShouye extends Fragment implements OnItemClickListener {
 
     private void initView() {
         /*运营列表*/
-        binding.rvShopList.setLayoutManager(new WrapContentLinearLayoutManager(FragmentShouye.this.getActivity()));
+        binding.rvShopList.setLayoutManager(new WrapContentLinearLayoutManager(FragmentSynonym.this.getActivity()));
         showYuyingAdapter = new ShowYuyingAdapter(yuyingInfoDBS);
         showYuyingAdapter.setOnItemClickListener(this);
         binding.rvShopList.setAdapter(showYuyingAdapter);

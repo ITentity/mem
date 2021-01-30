@@ -39,11 +39,13 @@
                 </RelativeLayout>
             </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-            <TextView
-                android:id="@+id/tv_select"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:text="12123142434"/>
         </RelativeLayout>
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="@dimen/fab_margin"
+                app:srcCompat="@mipmap/add" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

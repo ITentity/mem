@@ -13,10 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mem.R;
 import com.example.mem.app.MyApplication;
+import com.example.mem.entity.DB.YunyingStepDB;
 import com.example.mem.entity.YunyingInfoBean;
-import com.example.mem.listen.OnItemClickListener;
 import com.example.mem.listen.OnYunyingStepHandleItemClickListener;
-import com.example.mem.utils.ToastUtils;
 import com.example.mem.utils.UIUtils;
 
 import java.util.List;
@@ -26,15 +25,15 @@ import butterknife.ButterKnife;
 /**
  * 新增运营步骤adapter
  */
-public class YuyingInfoAdapter extends RecyclerView.Adapter<YuyingInfoAdapter.ViewHolder> {
+public class ShowYuyingInfoAdapter extends RecyclerView.Adapter<ShowYuyingInfoAdapter.ViewHolder> {
 
-    private List<YunyingInfoBean> mList;
+    private List<YunyingStepDB> mList;
 
-    public YuyingInfoAdapter() {
+    public ShowYuyingInfoAdapter() {
 
     }
 
-    public void setDatas(List<YunyingInfoBean> listBeans) {
+    public void setDatas(List<YunyingStepDB> listBeans) {
         this.mList = listBeans;
     }
 
@@ -55,41 +54,10 @@ public class YuyingInfoAdapter extends RecyclerView.Adapter<YuyingInfoAdapter.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        YunyingInfoBean yunyingInfoBean = mList.get(position);
-        if (position == mList.size() - 1) {
-            holder.etStep.setEnabled(false);
-            holder.etStep.setText("点击+新增步骤");
-            holder.ivStepDesc.setImageDrawable(MyApplication.getInstance().getDrawable(R.mipmap.add_gray));
-        } else  {
-            holder.etStep.setEnabled(true);
-            holder.etStep.setHint("步骤" + (position + 1) + "：");
-            holder.etStep.setText(yunyingInfoBean.getStepName());
-            UIUtils.setGoodImgPath(yunyingInfoBean.getImagePath(), holder.ivStepDesc);
-        }
-        holder.ivStepDesc.setOnClickListener(view -> {
-            if (position == mList.size() - 1) { //新增步骤
-                onYunyingStepHandleItemClickListener.addStep(view, position);
-            } else {    // 新增图片
-                onYunyingStepHandleItemClickListener.stepDescChange(view, position);
-            }
-        });
-
-        holder.etStep.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                onYunyingStepHandleItemClickListener.stepNameChange(holder.etStep, position, charSequence.toString());
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        });
+        YunyingStepDB yunyingInfoBean = mList.get(position);
+        holder.etStep.setEnabled(false);
+        holder.etStep.setText("步骤" + (position + 1) + "：" + yunyingInfoBean.getStepName());
+        UIUtils.setGoodImgPathDefault(yunyingInfoBean.getImagePath(), holder.ivStepDesc);
     }
 
     @Override

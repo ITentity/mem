@@ -7,7 +7,7 @@
     <tab
         icon="@mipmap/dingdan"
         id="@+id/bottomorder"
-        title="关键词" />
+        title="近似词" />
     <tab
         icon="@mipmap/wode"
         id="@+id/bottomme"

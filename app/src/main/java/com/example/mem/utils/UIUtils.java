@@ -32,4 +32,28 @@ public class UIUtils {
             e.printStackTrace();
         }
     }
+    // 设置图片
+    public static void setGoodImgPathDefault(String path, ImageView productImg) {
+        try {
+            if (TextUtils.isEmpty(path)) {
+                Picasso.with(productImg.getContext())
+                        .load(R.mipmap.defaultpic)
+                        .placeholder(R.mipmap.defaultpic)
+                        .error(R.mipmap.defaultpic)
+                        .resize(100, 100)
+                        .config(Bitmap.Config.RGB_565)
+                        .into(productImg);
+            } else {
+                Picasso.with(productImg.getContext())
+                        .load("file://" + path)
+                        .placeholder(R.mipmap.defaultpic)
+                        .error(R.mipmap.defaultpic)
+                        .resize(100, 100)
+                        .config(Bitmap.Config.RGB_565)
+                        .into(productImg);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

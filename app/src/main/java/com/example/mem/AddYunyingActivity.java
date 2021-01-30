@@ -5,8 +5,10 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.util.SparseArray;
+import android.view.TextureView;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -22,6 +24,8 @@ import com.example.mem.adapter.YuyingInfoAdapter;
 import com.example.mem.app.MyApplication;
 import com.example.mem.databinding.ActivityAddYunyingBinding;
 import com.example.mem.databinding.ActivityMainBinding;
+import com.example.mem.entity.DB.YunyingStepDB;
+import com.example.mem.entity.DB.YuyingInfoDB;
 import com.example.mem.entity.YunyingInfoBean;
 import com.example.mem.fragment.FragmentShouye;
 import com.example.mem.listen.OnYunyingStepHandleItemClickListener;
@@ -46,10 +50,13 @@ public class AddYunyingActivity extends AppCompatActivity implements OnYunyingSt
         binding = DataBindingUtil.setContentView(AddYunyingActivity.this, R.layout.activity_add_yunying);
         initView();
         initData();
+        initViewListen();
     }
 
     private void initView() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this );
+        binding.head.tvTitle.setText("新增运营");
+        binding.head.tvMenu.setText("保存");
         // 设置布局管理器
         binding.rvYunyingInfo.setLayoutManager(layoutManager);
         yuyingInfoAdapter = new YuyingInfoAdapter();
@@ -60,9 +67,6 @@ public class AddYunyingActivity extends AppCompatActivity implements OnYunyingSt
     }
 
     private void initData() {
-        binding.ivSelect.setOnClickListener(v -> {
-            selectPic();
-        });
 
         // 初始化数据
         YunyingInfoBean yunyingInfoBean = new YunyingInfoBean();
@@ -71,6 +75,33 @@ public class AddYunyingActivity extends AppCompatActivity implements OnYunyingSt
         yunyingInfoBeanList.add(yunyingInfoBean);
         yuyingInfoAdapter.setDatas(yunyingInfoBeanList);
         yuyingInfoAdapter.notifyDataSetChanged();
+    }
+
+    private void initViewListen() {
+        // 返回
+        binding.head.ivBack.setOnClickListener(view -> {
+            finish();
+        });
+
+        // 保存
+        binding.head.tvMenu.setOnClickListener(view -> {
+            if (TextUtils.isEmpty(binding.etYunyingName.getText().toString())) {
+                ToastUtils.show("请输入运营标题");
+                return;
+            }
+            YuyingInfoDB yuyingInfoDB = new YuyingInfoDB();
+            yuyingInfoDB.setName(binding.etYunyingName.getText().toString());
+            for (int i = 0; i < yunyingInfoBeanList.size() - 1; i ++) {
+                YunyingStepDB yunyingStepDB = new YunyingStepDB();
+                yunyingStepDB.setStepName(yunyingInfoBeanList.get(i).getStepName());
+                yunyingStepDB.setImagePath(yunyingInfoBeanList.get(i).getImagePath());
+                yunyingStepDB.save();
+                yuyingInfoDB.getSteps().add(yunyingStepDB);
+            }
+            yuyingInfoDB.save();
+            ToastUtils.show("保存成功");
+            finish();
+        });
     }
 
 
@@ -184,7 +215,7 @@ public class AddYunyingActivity extends AppCompatActivity implements OnYunyingSt
 
     @Override
     public void stepNameChange(View view, int position, String text) {
-
+        yunyingInfoBeanList.get(position).setStepName(text);
     }
 
     @Override

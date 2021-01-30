@@ -14,6 +14,7 @@
             android:background="@color/color_f7"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
             <EditText
+                android:id="@+id/et_yunying_name"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_marginStart="20dp"
@@ -31,10 +32,6 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginEnd="20dp"/>
 
-            <ImageView
-                android:id="@+id/iv_select"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
         </LinearLayout>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
