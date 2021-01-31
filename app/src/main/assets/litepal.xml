@@ -32,8 +32,14 @@
     	</list>
     -->
     <list>
+        <!--运营信息的数据库-->
         <mapping class="com.example.mem.entity.DB.YuyingInfoDB" />
+        <!--运营信息详细步骤的数据库-->
         <mapping class="com.example.mem.entity.DB.YunyingStepDB" />
+        <!--主相似词的数据库-->
+        <mapping class="com.example.mem.entity.DB.SynonymMainDB" />
+        <!--关联相似词的数据库-->
+        <mapping class="com.example.mem.entity.DB.SynonymDB" />
     </list>
 
     <!--

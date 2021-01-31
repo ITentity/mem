@@ -19,10 +19,13 @@ import androidx.fragment.app.Fragment;
 import com.example.mem.AddSynonymActivity;
 import com.example.mem.AddYunyingActivity;
 import com.example.mem.R;
+import com.example.mem.ShowSynonymActivity;
 import com.example.mem.ShowYunyingActivity;
+import com.example.mem.adapter.ShowSynonymAdapter;
 import com.example.mem.adapter.ShowYuyingAdapter;
 import com.example.mem.databinding.FragmentShouyeBinding;
 import com.example.mem.databinding.FragmentSynonymBinding;
+import com.example.mem.entity.DB.SynonymMainDB;
 import com.example.mem.entity.DB.YuyingInfoDB;
 import com.example.mem.listen.OnItemClickListener;
 import com.example.mem.utils.ToastUtils;
@@ -37,6 +40,8 @@ import java.util.List;
 public class FragmentSynonym extends Fragment implements OnItemClickListener {
     private FragmentSynonymBinding binding;
     protected View rootView;
+    private ShowSynonymAdapter showSynonymAdapter;
+    private List<SynonymMainDB> synonymMainDBList = new ArrayList<>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -65,14 +70,32 @@ public class FragmentSynonym extends Fragment implements OnItemClickListener {
     @Override
     public void onResume() {
         super.onResume();
-
+        // 后面增加ture为激进查询方法，可以查出关联表的数据
+        List<SynonymMainDB> synonymMainDBS = LitePal.findAll(SynonymMainDB.class);
+        synonymMainDBList.clear();
+        synonymMainDBList.addAll(synonymMainDBS);
+        handleUI();
 
     }
 
-
+    private void handleUI() {
+        showSynonymAdapter.notifyDataSetChanged();
+        if (synonymMainDBList != null && synonymMainDBList.size() >0) {
+            binding.rvShopList.setVisibility(View.VISIBLE);
+            binding.ivNoData.setVisibility(View.GONE);
+        } else {
+            binding.rvShopList.setVisibility(View.GONE);
+            binding.ivNoData.setVisibility(View.VISIBLE);
+        }
+    }
 
     private void initView() {
-
+        /*近似词列表*/
+        binding.rvShopList.setLayoutManager(new WrapContentLinearLayoutManager(FragmentSynonym.this.getActivity()));
+        showSynonymAdapter = new ShowSynonymAdapter(synonymMainDBList);
+        showSynonymAdapter.setOnItemClickListener(this);
+        binding.rvShopList.setAdapter(showSynonymAdapter);
+        showSynonymAdapter.notifyDataSetChanged();
     }
 
     private void initData() {
@@ -87,6 +110,8 @@ public class FragmentSynonym extends Fragment implements OnItemClickListener {
 
     @Override
     public void onItemClick(View view, int position) {
-
+        Intent intent = new Intent(this.getContext(), ShowSynonymActivity.class);
+        intent.putExtra("synonym_main_id", synonymMainDBList.get(position).getId());
+        startActivity(intent);
     }
 }

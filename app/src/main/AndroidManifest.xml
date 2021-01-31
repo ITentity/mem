@@ -37,6 +37,8 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".ShowYunyingActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".ShowSynonymActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
