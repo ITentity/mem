@@ -101,6 +101,7 @@ public class FragmentShouye extends Fragment implements OnItemClickListener {
         binding.swipeRefreshLayout.setColorSchemeResources(R.color.qq_blue);
         binding.swipeRefreshLayout.setProgressViewOffset(false, 0, (int) TypedValue
                 .applyDimension(TypedValue.COMPLEX_UNIT_DIP, 48, getResources().getDisplayMetrics()));
+        binding.swipeRefreshLayout.setRefreshing(false);
     }
 
     private void initData() {

@@ -3,7 +3,9 @@ package com.example.mem;
 import android.os.Bundle;
 
 import com.example.mem.databinding.ActivityMainBinding;
+import com.example.mem.fragment.FragmentAbout;
 import com.example.mem.fragment.FragmentShouye;
+import com.example.mem.fragment.FragmentSynonym;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.gyf.barlibrary.ImmersionBar;
@@ -39,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void initData() {
         fragments.put(R.id.bottomhome, new FragmentShouye());
-        fragments.put(R.id.bottomorder, new FragmentShouye());
-        fragments.put(R.id.bottomme, new FragmentShouye());
+        fragments.put(R.id.bottomorder, new FragmentSynonym());
+        fragments.put(R.id.bottomme, new FragmentAbout());
 
         binding.bottomBar.setOnTabSelectListener(tabId -> {
             Fragment targetFragment = fragments.get(tabId);

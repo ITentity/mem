@@ -33,6 +33,8 @@
 
         <activity android:name=".AddYunyingActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".AddSynonymActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".ShowYunyingActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
     </application>
