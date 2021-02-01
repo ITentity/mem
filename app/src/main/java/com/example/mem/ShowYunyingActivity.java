@@ -22,7 +22,9 @@ import com.example.mem.databinding.ActivityAddYunyingBinding;
 import com.example.mem.entity.DB.YunyingStepDB;
 import com.example.mem.entity.DB.YuyingInfoDB;
 import com.example.mem.entity.YunyingInfoBean;
+import com.example.mem.listen.OnItemClickListener;
 import com.example.mem.listen.OnYunyingStepHandleItemClickListener;
+import com.example.mem.showImage.ShowImagesDialog;
 import com.example.mem.utils.CameraMenu;
 import com.example.mem.utils.PhotoUtils;
 import com.example.mem.utils.ToastUtils;
@@ -33,7 +35,7 @@ import org.litepal.LitePal;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShowYunyingActivity extends AppCompatActivity {
+public class ShowYunyingActivity extends AppCompatActivity implements OnItemClickListener {
     private ActivityAddYunyingBinding binding;
     private ShowYuyingInfoAdapter showYuyingInfoAdapter;
     private List<YunyingStepDB> yunyingStepDBList = new ArrayList<>();
@@ -54,6 +56,7 @@ public class ShowYunyingActivity extends AppCompatActivity {
         // 设置布局管理器
         binding.rvYunyingInfo.setLayoutManager(layoutManager);
         showYuyingInfoAdapter = new ShowYuyingInfoAdapter();
+        showYuyingInfoAdapter.setOnItemClickListener(this);
         showYuyingInfoAdapter.setDatas(yunyingStepDBList);
         binding.rvYunyingInfo.setAdapter(showYuyingInfoAdapter);
         showYuyingInfoAdapter.notifyDataSetChanged();
@@ -64,7 +67,9 @@ public class ShowYunyingActivity extends AppCompatActivity {
         YuyingInfoDB yuyingInfoDB = LitePal.find(YuyingInfoDB.class, id, true);
         binding.etYunyingName.setText(yuyingInfoDB.getName());
         binding.etYunyingName.setEnabled(false);
-        showYuyingInfoAdapter.setDatas(yuyingInfoDB.getSteps());
+        yunyingStepDBList.clear();
+        yunyingStepDBList.addAll(yuyingInfoDB.getSteps());
+        showYuyingInfoAdapter.setDatas(yunyingStepDBList);
         showYuyingInfoAdapter.notifyDataSetChanged();
     }
 
@@ -75,4 +80,12 @@ public class ShowYunyingActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onItemClick(View view, int position) {
+        if (yunyingStepDBList.size() > 0) {
+            new ShowImagesDialog(ShowYunyingActivity.this, yunyingStepDBList).show();
+        } else {
+            ToastUtils.show("暂无数据");
+        }
+    }
 }

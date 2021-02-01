@@ -30,6 +30,7 @@ import com.example.mem.entity.YunyingInfoBean;
 import com.example.mem.fragment.FragmentShouye;
 import com.example.mem.listen.OnYunyingStepHandleItemClickListener;
 import com.example.mem.utils.CameraMenu;
+import com.example.mem.utils.GlobalUtils;
 import com.example.mem.utils.PhotoUtils;
 import com.example.mem.utils.ToastUtils;
 import com.example.mem.utils.UIUtils;
@@ -80,6 +81,7 @@ public class AddYunyingActivity extends AppCompatActivity implements OnYunyingSt
     private void initViewListen() {
         // 返回
         binding.head.ivBack.setOnClickListener(view -> {
+            GlobalUtils.hideSoftInputFromWindow(view);
             finish();
         });
 
@@ -100,6 +102,7 @@ public class AddYunyingActivity extends AppCompatActivity implements OnYunyingSt
             }
             yuyingInfoDB.save();
             ToastUtils.show("保存成功");
+            GlobalUtils.hideSoftInputFromWindow(view);
             finish();
         });
     }

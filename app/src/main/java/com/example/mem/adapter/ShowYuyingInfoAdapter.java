@@ -15,6 +15,7 @@ import com.example.mem.R;
 import com.example.mem.app.MyApplication;
 import com.example.mem.entity.DB.YunyingStepDB;
 import com.example.mem.entity.YunyingInfoBean;
+import com.example.mem.listen.OnItemClickListener;
 import com.example.mem.listen.OnYunyingStepHandleItemClickListener;
 import com.example.mem.utils.UIUtils;
 
@@ -58,6 +59,9 @@ public class ShowYuyingInfoAdapter extends RecyclerView.Adapter<ShowYuyingInfoAd
         holder.etStep.setEnabled(false);
         holder.etStep.setText("步骤" + (position + 1) + "：" + yunyingInfoBean.getStepName());
         UIUtils.setGoodImgPathDefault(yunyingInfoBean.getImagePath(), holder.ivStepDesc);
+        holder.View.setOnClickListener(v -> {
+            onItemClickListener.onItemClick(v, position);
+        });
     }
 
     @Override
@@ -78,10 +82,10 @@ public class ShowYuyingInfoAdapter extends RecyclerView.Adapter<ShowYuyingInfoAd
         }
     }
 
-    private OnYunyingStepHandleItemClickListener onYunyingStepHandleItemClickListener;
+    private OnItemClickListener onItemClickListener;
     /*设置点击监听*/
-    public void setOnItemClickListener(OnYunyingStepHandleItemClickListener onYunyingStepHandleItemClickListener) {
-        this.onYunyingStepHandleItemClickListener = onYunyingStepHandleItemClickListener;
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
     }
 
 }

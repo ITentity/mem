@@ -24,7 +24,7 @@ public class UIUtils {
                         .load("file://" + path)
                         .placeholder(R.mipmap.add_accent)
                         .error(R.mipmap.add_accent)
-                        .resize(100, 100)
+                        .resize(GlobalUtils.getRealSizeWidth(), GlobalUtils.getRealSizeWidth())
                         .config(Bitmap.Config.RGB_565)
                         .into(productImg);
             }

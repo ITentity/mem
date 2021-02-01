@@ -32,6 +32,7 @@ import com.example.mem.entity.YunyingInfoBean;
 import com.example.mem.listen.OnItemClickListener;
 import com.example.mem.listen.OnYunyingStepHandleItemClickListener;
 import com.example.mem.utils.CameraMenu;
+import com.example.mem.utils.GlobalUtils;
 import com.example.mem.utils.PhotoUtils;
 import com.example.mem.utils.ToastUtils;
 import com.gyf.barlibrary.ImmersionBar;
@@ -73,6 +74,7 @@ public class AddSynonymActivity extends AppCompatActivity implements OnItemClick
     private void initViewListen() {
         // 返回
         binding.head.ivBack.setOnClickListener(view -> {
+            GlobalUtils.hideSoftInputFromWindow(view);
             finish();
         });
 
@@ -92,6 +94,7 @@ public class AddSynonymActivity extends AppCompatActivity implements OnItemClick
             }
             synonymMainDB.save();
             ToastUtils.show("保存成功");
+            GlobalUtils.hideSoftInputFromWindow(view);
             finish();
         });
 
